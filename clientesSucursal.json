@@ -1,0 +1,27 @@
+[
+    {
+        "nombre": "Leo",
+        "apellido": "Messi",
+        "dni": "1234567890"
+    },
+    {
+        "nombre": "Angel",
+        "apellido": "Di Maria",
+        "dni": "9876543210"
+    },
+    {
+        "nombre": "Dibu",
+        "apellido": "Martinez",
+        "dni": "4567890123"
+    },
+    {
+        "nombre": "Cuti",
+        "apellido": "Romero",
+        "dni": "7890123456"
+    },
+    {
+        "nombre": "Lionel",
+        "apellido": "Scaloni",
+        "dni": "2345678901"
+    }
+]

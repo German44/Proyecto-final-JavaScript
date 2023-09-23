@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.28/dist/sweetalert2.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body id="body">
+    <header>
+        <h1 class="titulo">Agenda de clientes</h1>
+    </header>
+    <section>
+        <div class="sectionForm">
+            <form>
+                <input class="input" id="inputNombre" type="text" placeholder="Nombre">
+                <input class="input" id="inputApellido" type="text" placeholder="Apellido">
+                <input class="input" id="inputDni" type="number" placeholder="DNI">
+                <button class="btn" id="btn" type="button">Ingresar</button>
+            </form>
+            <button class="btnBorrar" id="btnBorrar" type="button">Borrar todos los clientes</button>
+            <button class="btnSucursal" id="btnSucursal" type="button">Chequear clientes de Sucursal</button>
+        </div>
+        <div class="contenedorClientes">
+            <ul class="listaCliente">
+                <li class="listaItem">Nombre</li>
+                <li class="listaItem">Apellido</li>
+                <li class="listaItem">DNI</li>
+                <div class="btnX">X</div>
+            </ul>
+        </div>
+
+        <div class="contenedorClientes" id="contenedorClientes"><!--& Aca se agregan los cliente con JS -->
+    </section>
+
+    <!-- <div class="modalContainer" id="modalContainer">
+        <div class="modal">
+            <h2 class="tituloModal">Esta seguro/a que desea eliminar todo?</h2>
+            <div class="botones">
+                <button class="btnSi" id="btnSi" type="button">Si</button>
+                <button class="btnNo" id="btnNo" type="button">No</button>
+            </div>
+        </div>
+    </div> -->
+    <script src="./app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.28/dist/sweetalert2.all.min.js"></script>
+</body>
+
+</html>
