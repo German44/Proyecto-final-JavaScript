@@ -1,4 +1,14 @@
+//* variables
+//& Array Auxiliar para evitar descargar 2 veces el api
 let listaClientesSucursal = [];
+
+
+
+const btn = document.getElementById('btn');
+const btnBorrar = document.getElementById('btnBorrar');
+const btnSi = document.getElementById('btnSi');
+const btnNo = document.getElementById('btnNo');
+// const modalContainer = document.getElementById('modalContainer');
 
 class Cliente {
     constructor(nombre, apellido, dni,) {
@@ -13,13 +23,10 @@ class ClienteController {
         this.listaClientes = [];
         this.cargarClientesDesdeLocalStorage();
     }
-
     //& Metodo que almacena local el cliente en JSON
     guardarClientesEnLocalStorage() {
         const clientesJson = JSON.stringify(this.listaClientes);
         localStorage.setItem('Clientes', clientesJson);
-        // const clientesSucursalJson = JSON.stringify(this.listaClientesSucursal);
-        // localStorage.setItem('ClientesSucursal', clientesJson);
     }
     //& Metodo que carga local el cliente
     cargarClientesDesdeLocalStorage() {
@@ -27,17 +34,13 @@ class ClienteController {
         if (clientesJson) {
             this.listaClientes = JSON.parse(clientesJson);
         }
-        // const clientesSucursalJson = localStorage.getItem('ClientesSucursal');
-        // if (clientesJson) {
-        //     this.listaClientesSucursal = JSON.parse(clientesJson);
-        // }
     }
     //& Metodo para agregar clientes
     agregar() {
         const inputNombre = document.getElementById('inputNombre').value;
         const inputApellido = document.getElementById('inputApellido').value;
         const inputDni = document.getElementById('inputDni').value;
-
+        //& Condicional para evitar campos vacios y uso de sweetAlert
         if (inputNombre == "" || inputApellido == "" || inputDni == "") {
             Swal.fire({
                 position: 'center',
@@ -96,9 +99,8 @@ class ClienteController {
                 <li class="listaItem">${cliente.dni}</li>
                 <button class="btnX" id="btnX${cliente.dni}">X</button>
             </ul>`;
-
         });
-
+    //& bucle q recorre el arreglo para borrado individual
         this.listaClientes.forEach(cliente => {
             const btnX = document.getElementById(`btnX${cliente.dni}`);
             btnX.addEventListener('click', () => {
@@ -110,17 +112,10 @@ class ClienteController {
 
 let clienteController = new ClienteController();
 
-const btn = document.getElementById('btn');
-const btnBorrar = document.getElementById('btnBorrar');
-const btnSi = document.getElementById('btnSi');
-const btnNo = document.getElementById('btnNo');
-const modalContainer = document.getElementById('modalContainer');
-
 //* BOTON AGREGAR DATOS DE LOS INPUTS
 btn.addEventListener('click', function () {
     clienteController.agregar();
 });
-
 //* BOTON AGREGAR DATOS SUCURSAL
 btnSucursal.addEventListener('click', function () {
     if (listaClientesSucursal.length > 0) {
@@ -132,14 +127,14 @@ btnSucursal.addEventListener('click', function () {
             backdrop: 'true',
             timer: 1500,
         })
-    }else{
+    } else {
         clienteController.agregarSucursal();
     }
 });
-//* BOTON AGREGAR TODOS LOS DATOS
+//* BOTON BORRAR TODOS LOS DATOS
 btnBorrar.addEventListener('click', function () {
-    if (localStorage.length > 0){
-        
+    if (localStorage.length > 0) {
+
         Swal.fire({
             title: 'Esta seguro?',
             text: "No podra revertirlo!",
@@ -160,13 +155,7 @@ btnBorrar.addEventListener('click', function () {
                 )
             }
         })
-
     }
 });
-
-// btnNo.addEventListener('click', () => {
-//     modalContainer.classList.remove('mostrarModal')
-// });
-
 //& Mostrar clientes al cargar la página
 clienteController.mostrarEnDom();

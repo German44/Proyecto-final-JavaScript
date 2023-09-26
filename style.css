@@ -71,7 +71,6 @@ Form {
     color: antiquewhite;
 }
 
-
 .btn,
 .btnBorrar,
 .btnSucursal {
@@ -94,7 +93,6 @@ Form {
     text-shadow: none;
     transition: 0.5s ease;
 }
-
 
 .btnX {
     height: 40px;
@@ -145,25 +143,21 @@ Form {
     text-align: center;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 720px) {
 
     .titulo {
         font-size: 2rem;
     }
-
     .sectionForm {
         width: 100%;
     }
-
     .contenedorClientes {
         width: 100%;
     }
-
     .modal {
         width: 100%;
         height: 300px;
     }
-
     .tituloModal {
         font-size: 1rem;
     }
